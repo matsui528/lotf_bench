@@ -31,12 +31,15 @@ jobs:
     
     - name: Check for boost::unordered backend
       run: |
-        output=$(python -c "import lotf; lotf.print_backend()")
-        echo "Backend output: $output"
-        if echo "$output" | grep -q "boost::unordered"; then
-          echo "✅ boost::unordered found in backend"
-          exit 0
-        else
-          echo "❌ boost::unordered not found in backend"
-          exit 1
-        fi
+        python -c "
+        import lotf
+        import sys
+        output = lotf.print_backend()
+        print(f'Backend output: {output}')
+        if 'boost::unordered' in output:
+            print('✅ boost::unordered found in backend')
+            sys.exit(0)
+        else:
+            print('❌ boost::unordered not found in backend')
+            sys.exit(1)
+        "
