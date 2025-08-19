@@ -31,12 +31,15 @@ jobs:
     
     - name: Check for boost::unordered backend
       run: |
+        python --version
         python -c "
         import lotf
         import sys
         import io
         from contextlib import redirect_stdout
-        
+
+        print(f"{lotf.__version__=}")
+
         # Capture stdout from print_backend()
         f = io.StringIO()
         with redirect_stdout(f):
