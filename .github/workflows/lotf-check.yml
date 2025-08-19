@@ -38,7 +38,7 @@ jobs:
         import io
         from contextlib import redirect_stdout
 
-        print(f"{lotf.__version__=}")
+        print(f'{lotf.__version__=}')
 
         # Capture stdout from print_backend()
         f = io.StringIO()
