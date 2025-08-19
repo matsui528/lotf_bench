@@ -28,7 +28,7 @@ jobs:
     - name: Install lotf package
       run: |
         python -m pip install --upgrade pip
-        pip install lotf
+        pip install --only-binary=:all: lotf
     
     - name: Check for boost::unordered backend
       run: |
