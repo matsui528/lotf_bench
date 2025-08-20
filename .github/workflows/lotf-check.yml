@@ -36,19 +36,13 @@ jobs:
         python -c "
         import lotf
         import sys
-        import io
-        from contextlib import redirect_stdout
 
-        print(f'{lotf.__version__=}')
+        print('Lotf version:', lotf.__version__)
 
-        # Capture stdout from print_backend()
-        f = io.StringIO()
-        with redirect_stdout(f):
-            lotf.print_backend()
-        output = f.getvalue()
+        backend_info = lotf.backend()
+        print('Backend:', backend_info)
         
-        print(f'Backend output: {output}')
-        if 'boost::unordered' in output:
+        if 'boost::unordered' in backend_info:
             print('✅ boost::unordered found in backend')
             sys.exit(0)
         else:
