@@ -43,9 +43,9 @@ jobs:
         print('Backend:', backend_info)
         
         if 'boost::unordered' in backend_info:
-            print('✅ boost::unordered found in backend')
+            print('boost::unordered found in backend')
             sys.exit(0)
         else:
-            print('❌ boost::unordered not found in backend')
+            print('boost::unordered not found in backend')
             sys.exit(1)
         "
